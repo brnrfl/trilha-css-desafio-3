@@ -1,4 +1,4 @@
-# Módulo 2 - Trilha CSS
+# Módulo 2 - Trabalhando com Layouts no CSS
 ## Desafio 02: Clonando a Página do Youtube com HTML e CSS
 
 ### Objetivo
