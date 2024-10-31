@@ -1,0 +1,668 @@
+@import url("reset.css");
+* {
+    font-family: "Roboto", Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+body {
+    color: white;
+    background-color: rgb(18, 18, 18);
+}
+h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: -5px;
+}
+p {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+}
+a {
+    text-decoration: none;
+    color: rgb(51, 168, 219);
+    cursor: pointer;
+}
+b a, a b {
+    text-decoration: none;
+    color: rgb(51, 168, 219);
+    font-weight: 700;
+    cursor: pointer;
+}
+b {
+    font-weight: 700;
+}
+h2 {
+    font-weight: 700;
+}
+
+header {
+    background-color: rgb(18, 18, 18);
+    height: 3.5rem;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    box-sizing: border-box;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+.hoverHeader:hover {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: rgb(48, 48, 48);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.contentHeader {
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    flex: 1 1 auto;
+}
+.headerLeft {
+    height: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 0 auto;
+}
+.menu {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+.logo {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+svg {
+    display: block;
+    margin: auto;
+}
+.headerCenter {
+    height: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+}
+.searcher {
+    display: inline-flex;
+    justify-content: right;
+    align-items: center;
+    max-width: 40rem;
+    min-width: 5rem;
+    flex: 1 1 auto;
+}
+#search {
+    background-color: rgb(18, 18, 18);
+    border: 1px solid rgb(48, 48, 48);
+    max-width: auto;
+    min-width: 3rem;
+    height: 2.3rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 0 0 0 1rem;
+    border-radius: 2rem 0 0 2rem;
+    flex: 1 1 auto;
+}
+#search:focus-visible {
+    background-color: rgb(18, 18, 18);
+    outline: transparent;
+    border: 1px solid #1c62b9;
+    border-radius: 2rem 0 0 2rem;
+    padding: 0 0 0 48px;
+    background-image: url("../images/search.png");
+    background-size: 20px 20px;
+    background-position: 16px 8px;
+    background-repeat: no-repeat;
+    margin-left: -32px;
+}
+.buttonSearch {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgb(48, 48, 48);
+    border-radius: 0 2rem 2rem 0;
+    width: fit-content;
+    height: 2.43rem;
+    padding: 0 1rem 0 1.3rem;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.lupa {
+    width: 23px;
+}
+.mic {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: rgb(48, 48, 48);
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+.mic:hover {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.headerRight {
+    height: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 0 auto;
+}
+.createVideo {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-right: 0.6rem;
+}
+.bell {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+.profile {
+    background-image: url("../images/profile-picture.jpg");
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 1.4rem;
+    margin-right: 0.9rem;
+}
+.profile:hover {
+    cursor: pointer;
+}
+.tooltip {
+    position: absolute;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+}
+.tooltipSearch {
+    position: absolute;
+    display: inline-block;
+    margin-right: 6px;
+    border-radius: 0 2rem 2rem 0;
+    width: 4rem;
+    height: 2.6rem;
+}
+.tooltipTextSearch {
+    visibility: hidden;
+    font-size: 0.8rem;
+    width: 4.8rem;
+    background-color: rgba(140, 140, 140, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 0px;
+    position: absolute;
+    z-index: 1;
+    top: 3.5rem;
+    right: -0.4rem;
+}
+.tooltipSearch:hover .tooltipTextSearch {
+    visibility: visible;
+}
+.tooltipTextMic {
+    visibility: hidden;
+    font-size: 0.8rem;
+    width: 9.2rem;
+    background-color: rgba(140, 140, 140, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 0px;
+    position: absolute;
+    z-index: 1;
+    top: 3.7rem;
+    right: -3.1rem;
+}
+.tooltip:hover .tooltipTextMic {
+    visibility: visible;
+}
+.tooltipTextVideo {
+    visibility: hidden;
+    font-size: 0.8rem;
+    width: fit-content;
+    background-color: rgba(140, 140, 140, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 8px;
+    position: absolute;
+    z-index: 1;
+    top: 3.7rem;
+    right: 0.1rem;
+}
+.tooltip:hover .tooltipTextVideo {
+    visibility: visible;
+}
+.tooltipTextBell {
+    visibility: hidden;
+    font-size: 0.8rem;
+    width: 5rem;
+    background-color: rgba(140, 140, 140, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 4px;
+    position: absolute;
+    z-index: 1;
+    top: 3.7rem;
+    right: -1.3rem;
+}
+.tooltip:hover .tooltipTextBell {
+    visibility: visible;
+}
+
+
+
+main {
+    padding-top: 3.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    margin: 0 7rem;
+}
+.contentVideo {
+    max-width: 100%;
+    min-width: 540px;
+    display: inline-flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    gap: 1rem;
+    flex: 1 1 800px;
+    margin: 2rem auto 0;
+}
+.iframe{
+    width: 100%;
+    align-self: center;
+    flex: 0 0;
+    position: relative;
+}
+.mainThumb {
+    width: 100%;
+    object-fit: contain;
+}
+.mainThumbBG {
+    width: 140%;
+    position: absolute;
+    top: -10vw;
+    left: -8rem;
+    z-index: -1;
+    opacity: 0.5;
+}
+.buttons {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.description {
+    background-color: rgb(48, 48, 48);
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+}
+.channel {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.7rem;
+    position: relative;
+    margin-right: 0.5rem;
+}
+.subs {
+    font-size: 12px;
+    color: rgb(170, 170, 170);
+}
+.channelProfile {
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    background-image: url("../images/channels4_profile.jpg");
+    background-size: cover;
+}
+.channelProfile2 {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-image: url("../images/channels4_profile.jpg");
+    background-size: cover;
+    position: relative;
+    bottom: 3px;
+}
+.subscribe {
+    background-color: white;
+    color: rgb(18, 18, 18);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 10px 1rem;
+    border-radius: 2rem;
+}
+.subscribe:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+.actions {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: space-between;
+    gap: 0.5rem;
+}
+.reactions {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.lineReactions {
+    background-color: rgba(170, 170, 170, 0.5);
+    width: 1px;
+    height: 23px;
+    z-index: 1;
+}
+.like {
+    background-color: rgb(48, 48, 48);
+    border-radius: 2rem 0 0 2rem;
+    width: fit-content;
+    height: 35px;
+    padding: 0px 1rem 2px;
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: -1px;
+    gap: 0.5rem;
+}
+.countLikes {
+    font-size: 14px;
+    font-weight: 500;
+    padding-top: 3px;
+}
+.dislike {
+    background-color: rgb(48, 48, 48);
+    border-radius: 0 2rem 2rem 0;
+    width: fit-content;
+    height: 35px;
+    padding: 2px 1rem 0 0.7rem;
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.like:hover, .dislike:hover, .share:hover, .clip:hover, .save:hover, .more:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.share {
+    background-color: rgb(48, 48, 48);
+    border-radius: 2rem;
+    height: 35px;
+    padding: 0 1rem 1px 0.8rem;
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.4rem;
+}
+.textShare, .textClip, .textSave, .textVideosBottom, .textAbout, .textApple {
+    font-size: 14px;
+    font-weight: 500;
+}
+.share svg {
+    margin-top: 4px;
+}
+.clip {
+    background-color: rgb(48, 48, 48);
+    border-radius: 2rem;
+    height: 35px;
+    padding: 0 1rem 1px 0.8rem;
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.4rem;
+}
+.save {
+    background-color: rgb(48, 48, 48);
+    border-radius: 2rem;
+    height: 35px;
+    padding: 0 1rem 1px 0.8rem;
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.4rem;
+}
+.more {
+    background-color: rgb(48, 48, 48);
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.4rem;
+}
+.bottomLinks {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: space-between;
+    gap: 0.5rem;
+}
+.videosLinkBottom {
+    background-color: rgb(48, 48, 48);
+    border: 1px solid #646464;
+    border-radius: 2rem;
+    height: 35px;
+    padding: 0 0.7rem 1px 0.7rem;
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.4rem;
+}
+.videosLinkBottom svg {
+    margin-top: 6px;
+}
+.about {
+    background-color: rgb(48, 48, 48);
+    border: 1px solid #646464;
+    border-radius: 2rem;
+    height: 35px;
+    padding: 0 0.7rem 1px 0.7rem;
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.4rem;
+}
+.appleMusic {
+    background-color: rgb(48, 48, 48);
+    border: 1px solid #646464;
+    border-radius: 2rem;
+    height: 35px;
+    padding: 0 0.7rem 1px 0.5rem;
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.4rem;
+}
+.videosLinkBottom:hover, .about:hover, .appleMusic:hover {
+    cursor: pointer;
+    background-color: #646464;
+}
+
+
+
+
+
+
+
+
+.sideVideos {
+    min-width: 450px;
+    width: 250px;
+    height: 100vh;
+    margin: 2rem auto;
+    display: inline-flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    flex: 1 1 450px;
+}
+.suggestion {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.indication {
+    background-color: rgb(48, 48, 48);
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.indication h3 {
+    font-size: 14px;
+    margin: 0;
+    font-weight: 500;
+}
+.selected {
+    background-color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    color: rgb(18, 18, 18);
+}
+.selected h3 {
+    font-weight: 500;
+}
+.indicationHover:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.video {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.videoFlex {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex: 1 1 auto;
+}
+.thumb {
+    cursor: pointer;
+    position: relative;
+}
+.leftThumbInfo {
+    display: inline-flex;
+
+}
+.thumbImg {
+    border-radius: 0.5rem;
+}
+h3 {
+    font-weight: 500;
+    line-height: 1.4rem;
+    margin-bottom: 0.3rem;
+}
+.timeVideo{
+    font-size: 0.7rem;
+    background-color: rgba(18, 18, 18, 0.5);
+    display: inline-block;
+    padding: 4px 6px;
+    border-radius: 5px;
+    position: absolute;
+    right: 5px;
+    bottom: 9px;
+}
+.timeSide {
+    font-weight: 700;
+    margin: auto;
+}
+.infoVideo {
+    padding-left: 8px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+.infoVideo p {
+    color: rgb(170, 170, 170);
+}
+.infoVideoChannel {
+    color: rgb(170, 170, 170);
+}
+.infoVideoChannel:hover {
+    color: white;
+    cursor: pointer;
+}
+.optThumb {
+    margin-top: 3px;
+    margin-left: 1rem;
+}
+.optThumb:hover {
+    background-color: rgb(48, 48, 48);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+footer {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.pointer {
+    cursor: pointer;
+}
