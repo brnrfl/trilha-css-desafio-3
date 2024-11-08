@@ -5,6 +5,8 @@
     font-style: normal;
 }
 body {
+    width: 100%;
+    height: 100%;
     color: white;
     background-color: rgb(18, 18, 18);
     display: grid;
@@ -291,31 +293,34 @@ svg {
 
 
 main {
+    max-width: 100%;
     grid-area: main;
     display: grid;
     grid-template:
-    "nav nav2" 50px
+    "nav nav2" auto
     "nav content" 1fr
     / 240px 1fr;
     padding-top: 12px;
 }
 .nav1 {
+    width: 240px;
     grid-area: nav;
-    padding-top: 12px;
-    padding-left: 7px;
-    padding-right: 12px;
-    padding-bottom: 12px;
+    padding: 12px;
     overflow: auto;
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    align-items: flex-start;
     margin-top: -12px;
-    margin-right: -2px;
+    position: fixed;
+    height: calc(100vh - 3.5rem);
+    box-sizing: border-box;
+}
+.nav1::-webkit-scrollbar {
+    display: none;
 }
 .nav1 div {
     width: 204px;
     height: 40px;
-    margin-right: 10px;
     padding: 12px;
     box-sizing: border-box;
     display: flex;
@@ -323,19 +328,20 @@ main {
     align-items: center;
     border-radius: 10px;
     gap: 25px;
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     font-weight: 300;
+    letter-spacing: 0.5px;
 }
 .nav1 svg {
     margin: 0;
 }
 .nav1 div:hover {
     background-color: rgb(40, 40, 40);
+    cursor: pointer;
 }
 .home {
     width: 204px;
     height: 40px;
-    margin-right: 10px;
     padding: 12px;
     box-sizing: border-box;
     display: flex;
@@ -343,42 +349,143 @@ main {
     align-items: center;
     border-radius: 10px;
     gap: 25px;
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     font-weight: 300;
     background-color: rgb(40, 40, 40);
+    letter-spacing: 0.5px;
 }
 .home:hover {
     background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
 }
+div.hrNav {
+    background-color: rgb(60, 60, 60);
+    border-radius: 0;
+    height: 1px;
+    width: 100%;
+    margin: 12px auto;
+    padding: 0.5px;
+}
+div.hrNav:hover {
+    background-color: rgb(60, 60, 60);
+    cursor: default;
+}
+div.secondNav {
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    padding-left: 13px;
+}
+div.secondNav svg {
+    margin-left: -18px;
+}
+div.subsNav, div.explore, div.moreYT {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+div.subsNav:hover, div.explore:hover, div.moreYT:hover {
+    cursor: default;
+    background-color: transparent;
+}
+.navFooter {
+    font-size: 0.8rem;
+    color: rgb(170, 170, 170);
+    width: 204px;
+    padding-left: 12px;
+    line-height: 1.1rem;
+}
+.navFooter .pointer {
+    font-weight: 500;
+}
+.infoFooter {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: rgb(113, 113, 113);
+}
+div.profileApple {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-image: url("../images/profile-apple.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    margin: 0;
+}
+div.profileDIO {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-image: url("../images/profile-dio.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    margin: 0;
+}
+div.profileEaslo {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-image: url("../images/profile-easlo.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    margin: 0;
+}
+div.profileCrinacle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-image: url("../images/profile-crinacle.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    margin: 0;
+}
+div.profileCEE {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-image: url("../images/profile-CEE.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    margin: 0;
+}
+div.profileNsenga {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-image: url("../images/profile-nsenga.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+
+
 .nav2 {
     grid-area: nav2;
     padding-left: 24px;
     padding-right: 24px;
-}
-.content {
-    background-color: tomato;
-    grid-area: content;
-    padding: 21px;
-}
-
-
-
-
-
-
-.suggestion {
     display: inline-flex;
     flex-flow: row nowrap;
     align-items: flex-start;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 12px;
     margin-bottom: 10px;
+    box-sizing: border-box;
+    overflow-x: auto;
+    padding-bottom: 10px;
 }
 .indication {
     background-color: rgb(40, 40, 40);
     padding: 5px 12px;
     border-radius: 8px;
     cursor: pointer;
+    min-width: fit-content;
 }
 .indication h3 {
     font-size: 14px;
@@ -397,55 +504,107 @@ main {
 .indicationHover:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
-.video {
-    display: inline-flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 5px;
+.nav2::-webkit-scrollbar {
+    background-color: rgb(60, 60, 60);
+    border-radius: 5px;
+    height: 8px;
+}
+
+
+
+
+.content {
+    box-sizing: border-box;
+    grid-area: content;
+    padding: 21px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(277px, 100%));
+    grid-auto-rows: auto;
+}
+
+
+
+.videos {
+    padding: 0 10px;
     width: 100%;
     box-sizing: border-box;
 }
-.videoFlex {
-    display: inline-flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex: 1 1 auto;
-}
-.thumb {
-    cursor: pointer;
-    position: relative;
-}
-.leftThumbInfo {
-    display: inline-flex;
-
-}
 .thumbImg {
-    border-radius: 0.5rem;
+    border-radius: 12px;
+    width: 100%;
 }
-h3 {
-    font-weight: 500;
-    line-height: 1.4rem;
-    margin-bottom: 0.3rem;
+.imgThumb {
+    object-fit: cover;
+    position: relative;
+    margin-bottom: 8px;
 }
-.timeVideo{
+.timeVideo {
     font-size: 0.7rem;
     background-color: rgba(18, 18, 18, 0.5);
     display: inline-block;
     padding: 4px 6px;
     border-radius: 5px;
     position: absolute;
-    right: 5px;
-    bottom: 9px;
+    right: 8px;
+    bottom: 12px;
 }
 .timeSide {
     font-weight: 700;
     margin: auto;
 }
+.timeVideoLIVE {
+    font-size: 0.7rem;
+    background-color: red;
+    display: inline-block;
+    padding: 4px 6px;
+    border-radius: 5px;
+    position: absolute;
+    right: 8px;
+    bottom: 12px;
+}
+.page2A {
+    color: white;
+}
+
+
+
+
+.infoVideoFlex {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex: row nowrap;
+    padding-bottom: 50px;
+}
+.profileThumb {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+.profileThumb img {
+    width: 100%;
+    border-radius: 50%;
+}
+.titleVideo {
+    max-height: 2.9rem;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 2;
+}
+h3 {
+    font-weight: 500;
+    line-height: 1.4rem;
+    margin-bottom: 0.3rem;
+}
 .infoVideo {
-    padding-left: 8px;
-    padding-top: 5px;
+    width: 100%;
     cursor: pointer;
 }
 .infoVideo p {
@@ -459,8 +618,14 @@ h3 {
     cursor: pointer;
 }
 .optThumb {
-    margin-top: 3px;
-    margin-left: 1rem;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -10px;
+    margin-top: -5px;
 }
 .optThumb:hover {
     background-color: rgb(40, 40, 40);
@@ -468,11 +633,7 @@ h3 {
     cursor: pointer;
 }
 
-footer {
-    width: 100%;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
+
 .pointer {
     cursor: pointer;
 }
